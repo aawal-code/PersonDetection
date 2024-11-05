@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>Person Detection Control Panel</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Person Detection Control Panel</h1>
+        <div class="status">
+            {% if detection_running %}
+                <p>Status: <span class="running">Detection Running</span></p>
+                <form action="{{ url_for('stop') }}">
+                    <button type="submit" class="btn stop-btn">Stop Detection</button>
+                </form>
+            {% else %}
+                <p>Status: <span class="stopped">Detection Stopped</span></p>
+                <form action="{{ url_for('start') }}">
+                    <button type="submit" class="btn start-btn">Start Detection</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
